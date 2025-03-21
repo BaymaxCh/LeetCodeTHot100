@@ -21,11 +21,12 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-    <build>
+<!--     <build>
         <plugins>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
+            <artifactId>maven-surefire-plugin</artifactId>
             <version>3.6.3</version>
             <configuration>
                 <!--根据个人需要自己修改-->
@@ -33,21 +34,36 @@
                 <target>11</target>
             </configuration>
         </plugin>
-
-
-                 
-        <build>
+    </plugins></build> -->
+<build>
     <plugins>
+        <!-- 1. 编译器插件（设置 JDK 版本） -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.11.0</version>  <!-- 最新稳定版本 -->
+            <configuration>
+                <source>11</source>    <!-- JDK 源码版本 -->
+                <target>11</target>    <!-- 编译目标版本 -->
+                <encoding>UTF-8</encoding>  <!-- 可选：指定编码 -->
+            </configuration>
+        </plugin>
+        <!-- 2. 测试运行插件（可跳过测试或配置测试规则） -->
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
-            <version>3.6.3</version>  <!-- 请根据最新版本进行更新 -->
+            <version>3.2.0</version>  <!-- 最新稳定版本 -->
+            <configuration>
+                <!-- 跳过测试（根据需求可选） -->
+                <skipTests>false</skipTests>
+                <!-- 包含/排除测试用例 -->
+                <includes>
+                    <include>**/*Test.java</include>
+                </includes>
+            </configuration>
         </plugin>
     </plugins>
 </build>
-
-    </plugins></build>
-
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
