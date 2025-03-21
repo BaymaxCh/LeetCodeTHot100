@@ -45,7 +45,6 @@
             <configuration>
                 <source>11</source>    <!-- JDK 源码版本 -->
                 <target>11</target>    <!-- 编译目标版本 -->
-                <encoding>UTF-8</encoding>  <!-- 可选：指定编码 -->
             </configuration>
         </plugin>
         <!-- 2. 测试运行插件（可跳过测试或配置测试规则） -->
